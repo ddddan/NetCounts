@@ -1,0 +1,22 @@
+﻿Net Counts Program
+==================
+
+Main Outline
+------------
+
+[v0.0] 1. Read in a csv file (analytics_counts format) either by:
+          a. "Browse..." (Common Dialog) or
+[v0.1]    b. Drag and drop
+
+[v0.0] 2. Display file and "Create Document..." button
+
+[v0.0] 3. Present options:
+          a. Client Name, Campaign Name 
+[v0.2]    b. Arrangement of fields (columns / rows)
+
+[v0.0] 4. Create an Excel file using the current Net Counts format, including:
+          a. Table presentation
+		  b. Main Title
+		  c. Blakely Logo
+		  d. Tab name ("Net Counts")
+[v0.1]    e. Merged headers

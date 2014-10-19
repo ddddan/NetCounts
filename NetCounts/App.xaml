@@ -1,0 +1,15 @@
+﻿<Application x:Class="NetCounts.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="Mango" Color="#f99e31" />
+        <SolidColorBrush x:Key="FadedMango" Color="#d0f99e31" />
+        <SolidColorBrush x:Key="Cherry" Color="#ee2b2d" />
+        <SolidColorBrush x:Key="FadedCherry" Color="#d0ee2b2d" />
+        <SolidColorBrush x:Key="LGrey" Color="#cecccc" />
+        <SolidColorBrush x:Key="DGrey" Color="#646569" />
+        <SolidColorBrush x:Key="FadedDGrey" Color="#d0646569" />
+        
+    </Application.Resources>
+</Application>
