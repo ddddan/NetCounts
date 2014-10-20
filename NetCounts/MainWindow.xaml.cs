@@ -25,13 +25,37 @@ namespace NetCounts
         public MainWindow()
         {
             InitializeComponent();
+
+            // Initialize the CountsData object
+            cData = new CountsData();
+
+            // Use this object for data binding
+            this.DataContext = cData;
         }
 
         private void btnChooseFile_Click(object sender, RoutedEventArgs e)
         {
-            // Initialize the CountsData object
-            cData = new CountsData();
+            // If data has already been loaded, ensure user wants to choose a different file
+            // If not, do not continue
+            if (cData.HasData == "True")
+            {
+                MessageBoxResult result = MessageBox.Show("Data has already been loaded. Do you wish to load a new file?", "Data Exists", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                {
+                    return;
+                } 
+            }
+
+            // Open the file and read the contents
+            cData.ChooseFile();
             cData.ReadFile();
+
+        }
+
+        private void btnCreateReport_Click(object sender, RoutedEventArgs e)
+        {
+            // Do Nothing for now
+            MessageBox.Show("You Wish!", "Not Yet Implemented", MessageBoxButton.OK, MessageBoxImage.Hand);
         }
 
 

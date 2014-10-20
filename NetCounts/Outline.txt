@@ -8,7 +8,9 @@ Main Outline
           a. "Browse..." (Common Dialog) or
 [v0.1]    b. Drag and drop
 
-[v0.0] 2. Display file and "Create Document..." button
+[v0.0] 2. Display file for review and "Create Report..." button
+[v0.3]    a. Read in Package Information
+[v0.3]    b. Read campaign information from DB
 
 [v0.0] 3. Present options:
           a. Client Name, Campaign Name 
@@ -20,3 +22,9 @@ Main Outline
 		  c. Blakely Logo
 		  d. Tab name ("Net Counts")
 [v0.1]    e. Merged headers
+
+
+TODOS:
+======
+2014-10-20:
+[ ] Need to handle invalid CSV format

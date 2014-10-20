@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
+
+using System.ComponentModel;
 using System.Linq;
 using System.IO;
 using System.Text;
@@ -25,18 +29,18 @@ namespace NetCounts
         public int QTY { get; set; }
     }
 
-    public class CountsData
+    public class CountsData : INotifyPropertyChanged
     {
         // Fields
         private string csvFileName;
         private string reportFileName;
-        private List<AnalyticsCountsStructure> m_results;
-        private AnalyticsCountsStructure csvFile;
-        private DataSet csvData;
         private ExcelPackage xlsxPackage;
 
+        private ObservableCollection<AnalyticsCountsStructure> m_results;
+        private string m_hasData = "False";
+
         // Properties
-        public List<AnalyticsCountsStructure> Results
+        public ObservableCollection<AnalyticsCountsStructure> Results
         {
             get
             {
@@ -44,17 +48,34 @@ namespace NetCounts
             }
         }
 
+        public string HasData
+        {
+            get
+            {
+                return m_hasData;
+            }
+        }
+
+        // INotifyPropertyChanged Implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         // Constructors
         public CountsData()
         {
-            m_results = new List<AnalyticsCountsStructure>();
-            this.ChooseFile();
+            m_results = new ObservableCollection<AnalyticsCountsStructure>();
+            // this.ChooseFile();
         }
 
         // Members
-        public void Clear() {
+        public void Clear()
+        {
             m_results.Clear();
-            csvData.Dispose();
         }
 
         public string ChooseFile()
@@ -71,7 +92,7 @@ namespace NetCounts
 
             // If the user chooses a file successfully, assign it to csvFileName.
             // Otherwise the default (empty) string is returned;
-            if (result == true) 
+            if (result == true)
             {
                 csvFileName = dlg.FileName;
             }
@@ -86,6 +107,10 @@ namespace NetCounts
                 return;
             }
 
+            // Empty out results
+            Clear();
+
+            // Read the file, row by row, using CsvHelper.CsvReader
             try
             {
                 using (StreamReader reader = File.OpenText(csvFileName))
@@ -97,13 +122,19 @@ namespace NetCounts
                         m_results.Add(record);
                     }
                 }
+                if (m_results.Count > 0)
+                {
+                    m_hasData = "True";
+                    NotifyPropertyChanged("Results");
+                    NotifyPropertyChanged("HasData");
+                }
             }
             catch (IOException ex)
             {
-                MessageBox.Show("[ERROR]: " + ex.Message);
+                MessageBox.Show("[ERROR]: " + ex.Message, "File Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
- 
+
 
     }
 }
