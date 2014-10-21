@@ -28,3 +28,4 @@ TODOS:
 ======
 2014-10-20:
 [ ] Need to handle invalid CSV format
+[ ] Clipboard crashing when attempting to copy from DataGrid

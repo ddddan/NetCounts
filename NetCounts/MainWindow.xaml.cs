@@ -39,7 +39,7 @@ namespace NetCounts
             // If not, do not continue
             if (cData.HasData == "True")
             {
-                MessageBoxResult result = MessageBox.Show("Data has already been loaded. Do you wish to load a new file?", "Data Exists", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show("Counts file has already been loaded. Do you wish to load a new file?", "Counts File Loaded", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
                     return;

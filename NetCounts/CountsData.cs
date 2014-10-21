@@ -85,7 +85,7 @@ namespace NetCounts
             // Configure dialog box parameters
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.DefaultExt = ".csv";
-            dlg.Filter = "CSV Files (.csv)|*.csv";
+            dlg.Filter = "CSV Files |*.csv";
 
             // Show the dialog box
             Nullable<bool> result = dlg.ShowDialog();
