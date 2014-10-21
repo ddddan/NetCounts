@@ -11,8 +11,8 @@
     </Window.Resources>
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Name="btnChooseFile" Height="25" Width="110" Margin="20" Click="btnChooseFile_Click">Choose File...</Button>
-            <Button Name="btnCreateReport" Height="25" Width="110" Margin="20" Click="btnCreateReport_Click" IsEnabled="{Binding HasData}">Create Report...</Button>
+            <Button Name="btnChooseFile" Height="25" Width="110" Margin="20" Click="btnChooseFile_Click">_Choose File...</Button>
+            <Button Name="btnCreateReport" Height="25" Width="110" Margin="20" Click="btnCreateReport_Click" IsEnabled="{Binding HasData}">Create _Report...</Button>
         </StackPanel>
         <Border BorderBrush="{StaticResource FadedDGrey}" BorderThickness="0,0,0,1" >
             <Grid Name="Review" IsEnabled="{Binding HasData}">

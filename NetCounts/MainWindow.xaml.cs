@@ -54,8 +54,12 @@ namespace NetCounts
 
         private void btnCreateReport_Click(object sender, RoutedEventArgs e)
         {
-            // Do Nothing for now
-            MessageBox.Show("You Wish!", "Not Yet Implemented", MessageBoxButton.OK, MessageBoxImage.Hand);
+            // Open Customize Dialog Box
+            CustomizeDlg dlg = new CustomizeDlg();
+
+            dlg.Owner = this;
+            dlg.ShowDialog();
+            
         }
 
 
